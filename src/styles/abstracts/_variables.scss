@@ -1,0 +1,48 @@
+// Kolory
+$color-primary: #3498db;
+$color-primary-light: lighten($color-primary, 10%);
+$color-primary-dark: darken($color-primary, 10%);
+
+$color-secondary: #2ecc71;
+$color-secondary-light: lighten($color-secondary, 10%);
+$color-secondary-dark: darken($color-secondary, 10%);
+
+$color-tertiary: #e74c3c;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$color-grey-dark-1: #777;
+$color-grey-dark-2: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+// Fonty
+$font-family-primary: 'Roboto', sans-serif;
+$font-family-secondary: 'Open Sans', sans-serif;
+
+$font-size-small: 1.2rem;
+$font-size-default: 1.6rem;
+$font-size-medium: 1.8rem;
+$font-size-large: 2.4rem;
+$font-size-xlarge: 3.6rem;
+$font-size-xxlarge: 4.8rem;
+
+// Marginesy
+$spacing-xxsmall: 0.4rem;
+$spacing-xsmall: 0.8rem;
+$spacing-small: 1.6rem;
+$spacing-medium: 2.4rem;
+$spacing-large: 3.2rem;
+$spacing-xlarge: 4.8rem;
+$spacing-xxlarge: 6.4rem;
+
+$breakpoint-phone: 37.5em;      // 600px
+$breakpoint-tab-port: 56.25em;  // 900px
+$breakpoint-tab-land: 75em;     // 1200px
+$breakpoint-desktop: 112.5em;   // 1800px
+
+$z-index-navbar: 1000;
+$z-index-modal: 2000;
+$z-index-dropdown: 1500;
+$z-index-overlay: 1999;

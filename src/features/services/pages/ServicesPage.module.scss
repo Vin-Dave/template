@@ -1,0 +1,56 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.servicesPage {
+  padding: $spacing-xlarge 0;
+}
+
+.container {
+  @include container;
+}
+
+.title {
+  font-size: $font-size-xlarge;
+  margin-bottom: $spacing-medium;
+  text-align: center;
+}
+
+.description {
+  text-align: center;
+  max-width: 70rem;
+  margin: 0 auto $spacing-xlarge;
+  color: $color-grey-dark-1;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  gap: $spacing-large;
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service {
+  padding: $spacing-large;
+  background-color: $color-white;
+  border-radius: 0.8rem;
+  @include box-shadow;
+  @include transition;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+    @include box-shadow(0.15);
+  }
+}
+
+.serviceTitle {
+  font-size: $font-size-large;
+  margin-bottom: $spacing-small;
+  color: $color-primary;
+}
+
+.serviceDescription {
+  color: $color-grey-dark-1;
+}

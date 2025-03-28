@@ -1,0 +1,91 @@
+// Media queries
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: $breakpoint-phone) { @content };
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: $breakpoint-tab-port) { @content };
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: $breakpoint-tab-land) { @content };
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: $breakpoint-desktop) { @content };
+  }
+}
+
+// Flexbox center
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Absolute center
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Clearfix
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Truncate text with ellipsis
+@mixin truncate($width: 100%) {
+  max-width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Custom scrollbar
+@mixin custom-scrollbar($width: 8px, $track-color: $color-grey-light-2, $thumb-color: $color-primary) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;
+    border-radius: 20px;
+  }
+}
+
+// Box shadow
+@mixin box-shadow($opacity: 0.1, $x: 0, $y: 0.5rem, $blur: 1rem) {
+  box-shadow: $x $y $blur rgba($color-black, $opacity);
+}
+
+// Transition
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+@mixin container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 $spacing-medium;
+
+  @include respond(tab-land) {
+    max-width: 90rem;
+  }
+
+  @include respond(tab-port) {
+    max-width: 60rem;
+  }
+
+  @include respond(phone) {
+    padding: 0 $spacing-small;
+  }
+}

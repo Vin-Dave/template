@@ -1,0 +1,43 @@
+// Convert px to rem
+@function rem($pixels, $context: 16) {
+  @return ($pixels / $context) * 1rem;
+}
+
+// Darken color
+@function darken-color($color, $percentage) {
+  @return darken($color, $percentage);
+}
+
+// Lighten color
+@function lighten-color($color, $percentage) {
+  @return lighten($color, $percentage);
+}
+
+// Calculate fluid font size
+@function fluid-font($min-size, $max-size, $min-width: 320, $max-width: 1200) {
+  $font-range: ($max-size - $min-size);
+  $viewport-range: ($max-width - $min-width) / 100;
+
+  @return calc(#{$min-size}px + #{$font-range} * ((100vw - #{$min-width}px) / #{$viewport-range}));
+}
+
+// Set color based on background brightness
+@function set-contrast-color($background-color, $light-color: $color-white, $dark-color: $color-black) {
+  $luminance: (red($background-color) * 0.299 + green($background-color) * 0.587 + blue($background-color) * 0.114) / 255;
+
+  @if ($luminance > 0.6) {
+    @return $dark-color;
+  } @else {
+    @return $light-color;
+  }
+}
+
+// Z-index function
+@function z-index($key) {
+  @if map-has-key($z-indices, $key) {
+    @return map-get($z-indices, $key);
+  }
+
+  @warn "Z-index key '#{$key}' not found in $z-indices map.";
+  @return null;
+}

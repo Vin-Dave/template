@@ -1,0 +1,62 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.errorPage {
+  @include flex-center;
+  min-height: 100vh;
+  padding: $spacing-medium;
+  background-color: $color-grey-light-1;
+}
+
+.container {
+  max-width: 60rem;
+  padding: $spacing-large;
+  background-color: $color-white;
+  border-radius: 0.8rem;
+  text-align: center;
+  @include box-shadow;
+}
+
+.title {
+  font-size: $font-size-xxlarge;
+  color: $color-tertiary;
+  margin-bottom: $spacing-medium;
+}
+
+.message {
+  font-size: $font-size-large;
+  margin-bottom: $spacing-small;
+}
+
+.details {
+  font-size: $font-size-medium;
+  color: $color-grey-dark-1;
+  margin-bottom: $spacing-large;
+  padding: $spacing-small;
+  background-color: $color-grey-light-2;
+  border-radius: 0.4rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: inline-block;
+  padding: $spacing-small $spacing-medium;
+  background-color: $color-primary;
+  color: $color-white;
+  border-radius: 0.4rem;
+  font-weight: 500;
+  @include transition;
+
+  &:hover {
+    background-color: $color-primary-dark;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
