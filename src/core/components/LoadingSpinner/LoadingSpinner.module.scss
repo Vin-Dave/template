@@ -1,11 +1,12 @@
 @import '../../../styles/abstracts/variables';
 @import '../../../styles/abstracts/mixins';
 
-.spinner-container {
+.spinnerContainer {
   @include flex-center;
   flex-direction: column;
   width: 100%;
   height: 100%;
+  min-height: 200px;
   padding: $spacing-medium;
 }
 
@@ -14,28 +15,28 @@
   align-items: center;
   justify-content: center;
   margin-bottom: $spacing-small;
+}
 
-  &__circle {
-    width: 1.2rem;
-    height: 1.2rem;
-    margin: 0 $spacing-xxsmall;
-    background-color: $color-primary;
-    border-radius: 50%;
-    animation: bounce 0.5s alternate infinite;
+.spinnerCircle {
+  width: 12px;
+  height: 12px;
+  margin: 0 $spacing-xxsmall;
+  background-color: $color-primary;
+  border-radius: 50%;
+  animation: bounce 0.5s alternate infinite;
 
-    &--delay {
-      animation-delay: 0.2s;
-    }
-
-    &--delay-more {
-      animation-delay: 0.4s;
-    }
+  &Delay {
+    animation-delay: 0.2s;
   }
 
-  &__text {
-    color: $color-grey-dark-1;
-    font-size: $font-size-medium;
+  &DelayMore {
+    animation-delay: 0.4s;
   }
+}
+
+.spinnerText {
+  color: $color-grey-dark-1;
+  font-size: $font-size-medium;
 }
 
 @keyframes bounce {
@@ -43,6 +44,6 @@
     transform: translateY(0);
   }
   to {
-    transform: translateY(-1rem);
+    transform: translateY(-10px);
   }
 }

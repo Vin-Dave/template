@@ -1,0 +1,157 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: $z-index-navbar;
+  @include transition(all, 0.3s, ease);
+}
+
+.headerTransparent {
+  background-color: transparent;
+}
+
+.headerSolid {
+  background-color: $color-white;
+  //box-shadow: $box-shadow-light;
+}
+
+.container {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  font-size: $font-size-large;
+  font-weight: 700;
+  color: $color-primary;
+  z-index: $z-index-navbar + 1;
+
+  @include respond(phone) {
+    font-size: $font-size-medium;
+  }
+}
+
+.hamburgerButton {
+  display: none;
+  z-index: $z-index-navbar + 1;
+
+  @include respond(tab-port) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: $color-primary;
+      border-radius: 3px;
+      @include transition;
+    }
+
+    &.active {
+      span:nth-child(1) {
+        transform: translateY(10.5px) rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: translateY(-10.5px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.navigation {
+  @include respond(tab-port) {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: $color-white;
+    @include transition;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.navigationOpen {
+      right: 0;
+    }
+  }
+}
+
+.menuList {
+  display: flex;
+  align-items: center;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.menuItem {
+  margin: 0 $spacing-medium;
+
+  @include respond(tab-port) {
+    margin: $spacing-medium 0;
+  }
+}
+
+.link {
+  position: relative;
+  font-size: $font-size-default;
+  font-weight: 500;
+  color: $color-grey-dark-2;
+  padding: $spacing-xsmall;
+  @include transition;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $color-primary;
+    @include transition;
+  }
+
+  &:hover {
+    color: $color-primary;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &Active {
+    color: $color-primary;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  @include respond(tab-port) {
+    font-size: $font-size-large;
+  }
+}

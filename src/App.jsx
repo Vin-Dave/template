@@ -1,12 +1,16 @@
 import { Suspense } from 'react';
+// import { HelmetProvider } from 'react-helmet-async';
 import Router from './Router';
 import LoadingSpinner from './core/components/LoadingSpinner';
+import './styles/main.scss';
 
 function App() {
     return (
-        <Suspense fallback={<LoadingSpinner />}>
-            <Router />
-        </Suspense>
+        <HelmetProvider>
+            <Suspense fallback={<LoadingSpinner />}>
+                <Router />
+            </Suspense>
+        </HelmetProvider>
     );
 }
 

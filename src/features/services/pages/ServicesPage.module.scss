@@ -13,35 +13,46 @@
   font-size: $font-size-xlarge;
   margin-bottom: $spacing-medium;
   text-align: center;
+  color: $color-primary;
+
+  @include respond(phone) {
+    font-size: $font-size-large;
+  }
 }
 
 .description {
   text-align: center;
-  max-width: 70rem;
+  max-width: 700px;
   margin: 0 auto $spacing-xlarge;
   color: $color-grey-dark-1;
+
+  @include respond(phone) {
+    margin-bottom: $spacing-large;
+  }
 }
 
 .services {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  gap: $spacing-large;
+  @include responsive-grid(300px, $spacing-large);
 
   @include respond(phone) {
-    grid-template-columns: 1fr;
+    gap: $spacing-medium;
   }
 }
 
 .service {
   padding: $spacing-large;
   background-color: $color-white;
-  border-radius: 0.8rem;
-  @include box-shadow;
+  border-radius: $border-radius-default;
+  @include box-shadow('light');
   @include transition;
 
   &:hover {
-    transform: translateY(-0.5rem);
-    @include box-shadow(0.15);
+    transform: translateY(-5px);
+    @include box-shadow('medium');
+  }
+
+  @include respond(phone) {
+    padding: $spacing-medium;
   }
 }
 
@@ -49,8 +60,46 @@
   font-size: $font-size-large;
   margin-bottom: $spacing-small;
   color: $color-primary;
+
+  @include respond(phone) {
+    font-size: $font-size-medium;
+  }
 }
 
 .serviceDescription {
   color: $color-grey-dark-1;
+  line-height: 1.6;
+}
+
+.serviceIcon {
+  color: $color-primary;
+  font-size: 40px;
+  margin-bottom: $spacing-medium;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.serviceFeatures {
+  margin-top: $spacing-medium;
+
+  li {
+    margin-bottom: $spacing-xsmall;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      margin-right: $spacing-xsmall;
+      background-color: $color-primary;
+      border-radius: 50%;
+    }
+  }
 }

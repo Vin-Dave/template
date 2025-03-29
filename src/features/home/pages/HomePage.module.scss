@@ -1,0 +1,161 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.homePage {
+  width: 100%;
+}
+
+.hero {
+  position: relative;
+  height: calc(100vh - 80px);
+  background: linear-gradient(to right, rgba($color-primary-dark, 0.9), rgba($color-primary, 0.7));
+  color: $color-white;
+  overflow: hidden;
+
+  @include respond(phone) {
+    height: auto;
+    min-height: 500px;
+  }
+}
+
+.container {
+  @include container;
+  @include flex-center;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+  padding: $spacing-xlarge $spacing-medium;
+
+  @include respond(phone) {
+    padding: $spacing-large $spacing-small;
+  }
+}
+
+.title {
+  font-size: $font-size-xxlarge;
+  font-weight: 700;
+  margin-bottom: $spacing-medium;
+  text-shadow: 0 2px 4px rgba($color-black, 0.2);
+
+  @include respond(tab-port) {
+    font-size: $font-size-xlarge;
+  }
+
+  @include respond(phone) {
+    font-size: 32px;
+  }
+}
+
+.subtitle {
+  font-size: $font-size-large;
+  max-width: 700px;
+  margin-bottom: $spacing-xlarge;
+
+  @include respond(tab-port) {
+    font-size: $font-size-medium;
+  }
+
+  @include respond(phone) {
+    font-size: 18px;
+    margin-bottom: $spacing-large;
+  }
+}
+
+.cta {
+  display: flex;
+  gap: $spacing-medium;
+
+  @include respond(phone) {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    gap: $spacing-small;
+  }
+}
+
+.ctaButton {
+  @include button($color-secondary, $color-white);
+  padding: $spacing-small $spacing-xlarge;
+  font-size: $font-size-medium;
+  font-weight: 600;
+
+  @include respond(phone) {
+    width: 100%;
+    padding: $spacing-small $spacing-medium;
+  }
+
+  &Secondary {
+    @include button($color-white, $color-primary);
+
+    &:hover {
+      background-color: $color-grey-light-1;
+    }
+  }
+}
+
+.features {
+  padding: $spacing-xxlarge 0;
+  background-color: $color-white;
+}
+
+.featuresTitle {
+  font-size: $font-size-xlarge;
+  text-align: center;
+  margin-bottom: $spacing-xlarge;
+  color: $color-primary;
+
+  @include respond(phone) {
+    font-size: $font-size-large;
+    margin-bottom: $spacing-large;
+  }
+}
+
+.featuresGrid {
+  @include responsive-grid(280px, $spacing-large);
+
+  @include respond(phone) {
+    gap: $spacing-medium;
+  }
+}
+
+.feature {
+  background-color: $color-white;
+  padding: $spacing-large;
+  border-radius: $border-radius-default;
+  text-align: center;
+  @include box-shadow('light');
+  @include transition;
+
+  &:hover {
+    transform: translateY(-5px);
+    @include box-shadow('medium');
+  }
+
+  @include respond(phone) {
+    padding: $spacing-medium;
+  }
+}
+
+.featureIcon {
+  color: $color-primary;
+  margin: 0 auto $spacing-medium;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featureTitle {
+  font-size: $font-size-large;
+  margin-bottom: $spacing-small;
+  color: $color-grey-dark-2;
+
+  @include respond(phone) {
+    font-size: $font-size-medium;
+  }
+}
+
+.featureDescription {
+  color: $color-grey-dark-1;
+  line-height: 1.6;
+}

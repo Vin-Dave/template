@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './LoadingSpinner.module.scss';
+import styles from './LoadingSpinner.module.scss';
 
 const LoadingSpinner = ({ delay = 300 }) => {
     const [isVisible, setIsVisible] = useState(false);
@@ -15,13 +15,13 @@ const LoadingSpinner = ({ delay = 300 }) => {
     if (!isVisible) return null;
 
     return (
-        <div className="spinner-container">
-            <div className="spinner">
-                <div className="spinner__circle"></div>
-                <div className="spinner__circle spinner__circle--delay"></div>
-                <div className="spinner__circle spinner__circle--delay-more"></div>
+        <div className={styles.spinnerContainer}>
+            <div className={styles.spinner}>
+                <div className={styles.spinnerCircle}></div>
+                <div className={`${styles.spinnerCircle} ${styles.spinnerCircleDelay}`}></div>
+                <div className={`${styles.spinnerCircle} ${styles.spinnerCircleDelayMore}`}></div>
             </div>
-            <p className="spinner__text">Ładowanie...</p>
+            <p className={styles.spinnerText}>Ładowanie...</p>
         </div>
     );
 };
